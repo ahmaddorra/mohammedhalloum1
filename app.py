@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify, render_template
 
 from model import MultinomialNB
 
-p = Flask(__name__)
+app = Flask(__name__)
 
 
 # create instance
