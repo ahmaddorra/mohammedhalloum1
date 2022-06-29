@@ -1,17 +1,19 @@
-FROM python:3.8
+# start by pulling the python image
+FROM python:3.8-alpine
 
-# Create the working directory
-RUN set -ex && mkdir /challenge
-WORKDIR /challenge
+# copy the requirements file into the image
+COPY ./requirements.txt /app/requirements.txt
 
-# Install Python dependencies
-COPY requirements.txt ./requirements.txt
+# switch working directory
+WORKDIR /app
+
+# install the dependencies and packages in the requirements file
 RUN pip install -r requirements.txt
 
-# Copy the relevant directories
-COPY . ./
+# copy every content from the local file to the image
+COPY . /app
 
-# Run the web server
-EXPOSE 8000
-ENV PYTHONPATH /challenge
-CMD python3 /challenge/app.py
+# configure the container to run in an executed manner
+ENTRYPOINT [ "python" ]
+
+CMD ["app.py" ]
