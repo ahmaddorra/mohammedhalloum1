@@ -2,7 +2,7 @@ FROM python:3.8
 
 # Create the working directory
 RUN set -ex && mkdir /challenge
-WORKDIR /classifier
+WORKDIR /challenge
 
 # Install Python dependencies
 COPY requirements.txt ./requirements.txt
