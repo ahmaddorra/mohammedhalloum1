@@ -28,6 +28,5 @@ def predict():
     return jsonify({"category": str(prediction)})
     
   
-# Create the main driver function
-port = int(5000) # <-----
-p.run(host='0.0.0.0', port=port)       # <-----
+if __name__ == '__main__':
+  app.run(host='0.0.0.0',debug=True, port=os.environ.get("PORT", 5000))
