@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify, render_template
 
 from model import MultinomialNB
 
-app = Flask(__name__)
+p = Flask(__name__)
 
 
 # create instance
@@ -30,4 +30,4 @@ def predict():
   
 # Create the main driver function
 port = int(5000) # <-----
-app.run(host='0.0.0.0', port=port)       # <-----
+p.run(host='0.0.0.0', port=port)       # <-----
